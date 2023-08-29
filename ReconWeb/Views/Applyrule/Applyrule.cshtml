@@ -1,0 +1,223 @@
+﻿@{
+    ViewData["Title"] = "Applyrule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .k-button.k-button-icontext.k-grid-add {
+            background: green;
+            color: white;
+        }
+
+        .k-pager-sizes {
+            display: inline-flex !important;
+            margin-left: 0% !important;
+            margin-top: -4% !important;
+            width: 24% !important;
+        }
+    </style>
+
+    <style>
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 0px solid rgba(67, 89, 113, 0.2);
+            border-radius: 0.5rem;
+            outline: 0;
+        }
+
+        .modal-dialog {
+            position: relative;
+            width: 800px;
+            margin: 0.5rem;
+            pointer-events: none;
+            margin-left: -240px;
+        }
+
+        .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1.5rem;
+        }
+
+        .modal-header {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 1.5rem 0.25rem;
+            border-bottom: 0px solid #d9dee3;
+            border-top-left-radius: calc(0.5rem - 0px);
+            border-top-right-radius: calc(0.5rem - 0px);
+        }
+
+        .error_show {
+            color: red;
+            margin-left: 10px;
+        }
+
+        .k-state-active {
+            display: none;
+        }
+
+        span.k-link {
+            color: #fff !important;
+            position: relative;
+            top: 0px;
+        }
+
+        a.k-link {
+            position: relative;
+            top: 0px;
+        }
+
+        a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete {
+            background: transparent;
+            border-color: transparent;
+        }
+
+        .k-pager-sizes {
+            display: inline-flex !important;
+            margin-left: 0% !important;
+            margin-top: -4% !important;
+            width: 24% !important;
+        }
+
+        .k-button.k-button-icontext.k-grid-add {
+            background: green;
+            color: white;
+        }
+
+        .error_show {
+            color: red;
+            margin-left: 10px;
+        }
+
+        .k-state-active {
+            display: none;
+        }
+
+        .k-grid-content {
+            overflow-x: scroll;
+        }
+
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+        }
+
+        span.k-link {
+            color: #fff !important;
+            position: relative;
+        }
+
+        a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete, a.k-button.k-button-icontext.k-grid-edit {
+            background: transparent;
+            border-color: transparent;
+        }
+
+        span.k-icon.k-edit {
+            display: none;
+        }
+
+        .k-grouping-header {
+            color: #ffffff;
+        }
+
+        .k-grid-filter.k-state-active {
+            background-color: rgb(51, 122, 183);
+        }
+
+        .k-state-active {
+            display: block;
+        }
+
+        .k-header.k-grid-toolbar.k-grid-top {
+            background: none;
+        }
+
+        .k-webkit {
+            overflow: hidden !important;
+        }
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-orange" style="height:auto;padding:10px">
+                        <div class="box-header text-center with-border">
+                            <h3 class="box-title">Apply Rule</h3>
+                        </div>
+                        <div class="container">
+                            <div class="row" style="padding-top:25px;padding-left:5px;padding-right:5px">
+                                <div class="table-responsive text-nowrap" style="margin-top: -20px;">
+                                    <i onclick="window.location.href = '/Applyrule/Applyruledetail'" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
+                                    <table class="table table-bordered table-sm">
+                                        <thead style="background: #c1c1c1;">
+                                            <tr class="text-nowrap">
+                                                <th>Action</th>
+                                                <th>Recon Name</th>
+                                                <th>Recon Type</th>
+                                                <th>Supporting File</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="height:25px;">
+                                                <td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+                                                <td>RBL CC BRS - 409000472606</td>
+                                                <td>Supporting File	</td>
+                                                <td>RBL CC- NACH Collection </td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr style="height:25px;">
+                                                <td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+                                                <td>Razorpay BRS - CWw0Noh1tfnVLM</td>
+                                                <td>Supporting File	</td>
+                                                <td> Razorpay - MIS Collection </td>
+                                                <td>Active</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        kendodate_format();
+    });
+
+    function rr() {
+        $("#newdebit").show();
+    }
+
+    function rr1() {
+        $("#newdebit").hide();
+    }
+
+
+</script>
+

@@ -11727,23 +11727,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Flexi\\.nuget\\packages\\": {},
+    "C:\\Users\\adinmaanmr\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\vijayvel\\Recon 2022\\ReconWeb\\ReconWeb.csproj",
+      "projectUniqueName": "D:\\user\\hema\\Recon\\Recon_Web\\Recon_web\\ReconWeb\\ReconWeb.csproj",
       "projectName": "ReconWeb",
-      "projectPath": "D:\\vijayvel\\Recon 2022\\ReconWeb\\ReconWeb.csproj",
-      "packagesPath": "C:\\Users\\Flexi\\.nuget\\packages\\",
-      "outputPath": "D:\\vijayvel\\Recon 2022\\ReconWeb\\obj\\",
+      "projectPath": "D:\\user\\hema\\Recon\\Recon_Web\\Recon_web\\ReconWeb\\ReconWeb.csproj",
+      "packagesPath": "C:\\Users\\adinmaanmr\\.nuget\\packages\\",
+      "outputPath": "D:\\user\\hema\\Recon\\Recon_Web\\Recon_web\\ReconWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Flexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adinmaanmr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11752,9 +11752,10 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://nuget.telerik.com/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -11808,7 +11809,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
