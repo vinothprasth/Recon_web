@@ -7,11 +7,10 @@
 <html>
 <head>
 	<title></title>
-
-
 	<style>
-
-
+		div.chosen-container.chosen-container-multi {
+			width: 339px !important;
+		}
 
 		.k-pager-sizes {
 			display: inline-flex !important;
@@ -21,15 +20,134 @@
 		}
 
 
-		/*.k-grid-pager{
-							height:30px !important;
-						}
+		.modal-content {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			pointer-events: auto;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 0px solid rgba(67, 89, 113, 0.2);
+			border-radius: 0.5rem;
+			outline: 0;
+		}
 
+		.modal-dialog {
+			position: relative;
+			width: 800px;
+			margin: 0.5rem;
+			pointer-events: none;
+			margin-left: -240px;
+		}
 
+		.modal-body {
+			position: relative;
+			flex: 1 1 auto;
+			padding: 1.5rem;
+		}
 
-						.k-state-default{
-							margin-top:-24px;
-						}*/
+		.modal-header {
+			display: flex;
+			flex-shrink: 0;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.5rem 1.5rem 0.25rem;
+			border-bottom: 0px solid #d9dee3;
+			border-top-left-radius: calc(0.5rem - 0px);
+			border-top-right-radius: calc(0.5rem - 0px);
+		}
+
+		.error_show {
+			color: red;
+			margin-left: 10px;
+		}
+
+		.k-state-active {
+			display: none;
+		}
+
+		span.k-link {
+			color: #fff !important;
+			position: relative;
+			top: 0px;
+		}
+
+		a.k-link {
+			position: relative;
+			top: 0px;
+		}
+
+		a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete {
+			background: transparent;
+			border-color: transparent;
+		}
+
+		.k-pager-sizes {
+			display: inline-flex !important;
+			margin-left: 0% !important;
+			margin-top: -4% !important;
+			width: 24% !important;
+		}
+
+		.k-button.k-button-icontext.k-grid-add {
+			background: green;
+			color: white;
+		}
+
+		.error_show {
+			color: red;
+			margin-left: 10px;
+		}
+
+		.k-state-active {
+			display: none;
+		}
+
+		.k-grid-content {
+			overflow-x: scroll;
+		}
+
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+		}
+
+		span.k-link {
+			color: #fff !important;
+			position: relative;
+		}
+
+		a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete, a.k-button.k-button-icontext.k-grid-edit {
+			background: transparent;
+			border-color: transparent;
+		}
+
+		span.k-icon.k-edit {
+			display: none;
+		}
+
+		.k-grouping-header {
+			color: #ffffff;
+		}
+
+		.k-grid-filter.k-state-active {
+			background-color: rgb(51, 122, 183);
+		}
+
+		.k-state-active {
+			display: block;
+		}
+
+		.k-header.k-grid-toolbar.k-grid-top {
+			background: none;
+		}
+
+		.k-webkit {
+			overflow: hidden !important;
+		}
+
 	</style>
 	<style>
 		.k-header.k-grid-toolbar.k-grid-top {
@@ -84,25 +202,35 @@
 						<input type="text" id="recon_id" name="recon_id" hidden value="">
 						<div class="row" style="padding-bottom:5px;padding-left:5px;padding-right:5px">
 							<div class="col-sm-4">
+								<label for="" class="form-label">Recon code&nbsp;</label>
+								<input class="form-control" id="ReconName" name="ReconName" type="text" value="" data-bind="value:ReconName">
+							</div>
+							<div class="col-sm-4">
 								<label for="" class="form-label">Recon Name&nbsp;</label>
 								<input class="form-control" id="ReconName" name="ReconName" type="text" value="" data-bind="value:ReconName">
 							</div>
 							<div class="col-sm-4">
-								<label for="" class="form-label">Mapping Type&nbsp;</label>
-								<select id="mode" class="form-select form-control">
-									<option value="I">Contra</option>
+								<label for="" class="form-label">Recon Type&nbsp;</label>
+								<select id="mode" class="form-select form-control">									
+									<option value="I">Proof</option>
+									<option value="I">Brs</option>
+									<option value="I">Integrity</option>
+									<option value="I">Value Based</option>
+									<option value="I">Non Value Based</option>
 								</select>
 							</div>
-							<div class="col-sm-4">
+
+						</div>
+						<div class="row" style="padding-bottom:8px;padding-top:5px;padding-left:5px;padding-right:5px">
+
+							<div class="col-sm-2">
 								<label for="" class="form-label">Period From&nbsp;</label>
 								<div>
 									<input class="cusDate" data-role='datepicker' id="period_from" name="period_from" onclick="Dateformat()" style="width:100%" />
 									<span data-for='valid' class='k-invalid-msg'></span>
 								</div>
 							</div>
-						</div>
-						<div class="row" style="padding-bottom:8px;padding-top:5px;padding-left:5px;padding-right:5px">
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<label for="organization" class="form-label">
 									<span>Period To</span>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="false" name="untillactive" onclick="checkactive()" id="untillactive" />&nbsp;&nbsp;<span style="font-size:13px;">Until Active</span>
 								</label>
@@ -110,113 +238,230 @@
 									<input class="cusDate" data-role='datepicker' id="period_to" onclick="Dateformat()" style="height:25px;width: 100%;" data-bind="value:period_to" onkeypress="return date_validate(event)" /><span data-for='valid' class='k-invalid-msg'></span>
 								</div>
 							</div>
-							<div class="col-sm-4">
-								<label for="" class="form-label">Account 1&nbsp;</label>
-								<select id="mode" class="form-select form-control">
-									<option value="I">Ac001</option>
-								</select>
-								<div id="acc1" style="display:none">
-									<input class="form-control1" id="accname" name="accname" type="text" value="">
+							<div class="col-sm-2">
+								<label for="" class="form-label">Partial Match&nbsp;</label>
+								<div style="margin-left:2px;margin-top:5px">
+									<input type="radio" id="Status_code1" name="Status_code1" value="Y1" checked>&nbsp;Yes &nbsp;
+									<input type="radio" id="Status_code1" name="Status_code1" value="N1" style="margin-left: 10px;">&nbsp;No&nbsp;
 								</div>
 							</div>
-							<div class="col-sm-4" id="acc2drop">
-								<label for="" class="form-label">
-									Account 2&nbsp;
-								</label>
-								<div>
-									<select class="form-select form-control" multiple data-mdb-placeholder="Example placeholder" multiple">
-										<option value="1">AccOne</option>
-										<option value="2">AccTwo</option>
-										<option value="3">AccThree</option>
-										<option value="4">AccFour</option>
-										<option value="5">AccFive</option>
-									</select>
-								</div>
-								@* <select id="mode" class="form-select form-control">
-								<option value="I">Ac001</option>
-								</select>     *@
-							</div>
-						</div>
-						<div class="row" style="padding-bottom:3px;padding-top:5px;padding-left:5px;padding-right:5px">
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<label for="" class="form-label">Status&nbsp;<span style="font-size: 12px;color: red;">*</span></label>
 								<div style="margin-left:2px;margin-top:5px">
 									<input type="radio" id="Status_code" name="Status_code" value="Y" checked>&nbsp;Active &nbsp;
 									<input type="radio" id="Status_code" name="Status_code" value="N" style="margin-left: 10px;">&nbsp;InActive&nbsp;
 								</div>
 							</div>
+							@*<div class="col-sm-4">
+							<label for="" class="form-label">Account 1&nbsp;</label>
+							<select id="mode" class="form-select form-control">
+							<option value="I">Ac001</option>
+							</select>
+							<div id="acc1" style="display:none">
+							<input class="form-control1" id="accname" name="accname" type="text" value="">
+							</div>
+							</div>
+							<div class="col-sm-4" id="acc2drop">
+							<label for="" class="form-label">
+							Account 2&nbsp;
+							</label>
+							<div>
+							<select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select" name="test">
+							<option value=""></option>
+							<option value="1">AccOne</option>
+							<option value="2">AccTwo</option>
+							<option value="3">AccThree</option>
+							<option value="4">AccFour</option>
+							<option value="5">AccFive</option>
+							</select>
+							</div>
+							</div>*@
+						</div>
+						@*<div class="row" style="padding-bottom:3px;padding-top:5px;padding-left:5px;padding-right:5px">
+
+						</div>*@
+						<div class="row" style="padding-bottom:3px;padding-top:5px;padding-left:5px;padding-right:5px">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-4" style="margin-top:10px;">
+								<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Submit</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr7()">Cancel</button></center>
+							</div>
+							<div class="col-sm-4"></div>
 						</div>
 						<div class="row" style="padding-top:20px">
 							<section class="col-md-12">
 								<div id="tab_list" class="col-md-12">
 									<ul class="nav nav-tabs">
 										<li class="active">
-											<a href="#ScreenControls" role="tab" data-toggle="tab">
-												Field Mapping
+											<a href="#Account" role="tab" data-toggle="tab">
+												Account
 											</a>
 										</li>
 										<li>
-											<a href="#Gridcolumns" id="" role="tab" data-toggle="tab">
-												File Conversion
+											<a href="#ReferenceField" role="tab" data-toggle="tab">
+												Reference Field
 											</a>
 										</li>
 										<li>
-											<a href="#Frontendvaliditions" id="" role="tab" data-toggle="tab">
-												Rule Setup
+											<a href="#FileTemplate" id="" role="tab" data-toggle="tab">
+												File Template
+											</a>
+										</li>
+										<li>
+											<a href="#ValueFieldMapping" id="" role="tab" data-toggle="tab">
+												Recon Date & Value Field Mapping
 											</a>
 										</li>
 									</ul>
 									<div class="tab-content">
-										<div class="tab-pane fade active in" id="ScreenControls">
+										@*Account*@
+										<div class="tab-pane fade active in" id="Account">
 											<div class="panel panel-default">
 												<div class="panel-body">
+													<i data-bs-toggle="modal" onclick="Account()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
 													<table class="table table-bordered table-sm">
 														<thead style="background: #c1c1c1;">
 															<tr class="text-nowrap">
 																<th>Action</th>
-																<th>Field Name</th>
-																<th>Alias Name</th>
-																<th>Type</th>
-																<th>Format</th>
+																<th>Account Name</th>
+																<th>Base/Target</th>
+																<th>Status</th>
 															</tr>
 														</thead>
 														<tbody>
 															<tr style="height:25px;">
-																<td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>																
+																<td align="center"><i data-bs-toggle="modal" onclick="Account()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+																<td>1234556789-HDFC Bank</td>
+																<td>Target</td>
+																<td>Active</td>
 															</tr>
 															<tr style="height:25px;">
-																<td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>																
+																<td align="center"><i data-bs-toggle="modal" onclick="Account()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+																<td>88888888888888-HDFC Ledger</td>
+																<td>Base</td>
+																<td>Active</td>
 															</tr>
 														</tbody>
 													</table>
 												</div>
 											</div>
-											<div class="tab-pane fade" id="Gridcolumns">
-												<div class="panel panel-default">
-													<div class="panel-body">
-														<div class="col-md-3">
-															<label for="Template_Type" class="form-label"> Template Type</label><br />
-															<div>
-																<select id="mode" class="form-select form-control">																
-																	<option value="1">Excel</option>
-																	<option value="2">CSV</option>
-																</select>
-															</div>
-														</div>
-													</div>
+										</div>
+										@*ReferenceField*@
+										<div class="tab-pane fade" id="ReferenceField">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<i data-bs-toggle="modal" onclick="ReferenceField()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
+													<table class="table table-bordered table-sm">
+														<thead style="background: #c1c1c1;">
+															<tr class="text-nowrap">
+																<th>Action</th>
+																<th>Ref Field Name</th>
+																<th>Recon Field Name</th>
+																<th>Field Type</th>
+																<th>Field Format</th>
+																<th>Display Order</th>
+																<th>Status</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr style="height:25px;">
+																<td align="center"><i data-bs-toggle="modal" onclick="ReferenceField()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+																<td>Ref Col1</td>
+																<td>Loan No</td>
+																<td>Text</td>
+																<td></td>
+																<td>1</td>
+																<td>Active</td>
+															</tr>
+															<tr style="height:25px;">
+																<td align="center"><i data-bs-toggle="modal" onclick="ReferenceField()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+																<td>Ref Col2</td>
+																<td>Amount</td>
+																<td>Number</td>
+																<td></td>
+																<td>2</td>
+																<td>Active</td>
+															</tr>
+														</tbody>
+													</table>
 												</div>
 											</div>
-											<div class="tab-pane fade" id="Frontendvaliditions">
-												<div class="panel panel-default">
-													<div class="panel-body">
+										</div>
+										@*FileTemplate*@
+										<div class="tab-pane fade" id="FileTemplate">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<i data-bs-toggle="modal" onclick="FileTemplate()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
+													<table class="table table-bordered table-sm">
+														<thead style="background: #c1c1c1;">
+															<tr class="text-nowrap">
+																<th>Action</th>
+																<th>Template Name</th>
+																<th>Account Name</th>
+																<th>Status</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr style="height:25px;">
+																<td align="center"><i data-bs-toggle="modal" onclick="FileTemplate()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+																<td>HDFC Bank Statement</td>
+																<td>1234556789-HDFC Bank</td>
+																<td>Active</td>
+															</tr>
+															<tr style="height:25px;">
+																<td align="center"><i data-bs-toggle="modal" onclick="FileTemplate()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+																<td>HDFC Ledger</td>
+																<td>88888888888888-HDFC Ledger</td>
+																<td>Active</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										@*Recon Date & Value Field Mapping*@
+										<div class="tab-pane fade" id="ValueFieldMapping">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+														<div class="col-sm-4">
+															<label for="" class="form-label">Tran Date Flag&nbsp;</label>
+															<div style="margin-left:2px;margin-top:5px">
+																<input type="radio" id="Status11" name="Status11" value="Y1" checked>&nbsp;&nbsp;Yes&nbsp;
+																<input type="radio" id="Status11" style="margin-left: 10px;" name="Status11" value="N">&nbsp;&nbsp;No&nbsp;
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="" class="form-label">Recon Tran Field</label>
+															<select id="mode" class="form-select form-control">
+																<option value="I">Tran Date</option>
+															</select>
+														</div>
+													</div>
+													<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+														<div class="col-sm-4">
+															<label for="" class="form-label">Value Field Flag&nbsp;</label>
+															<div style="margin-left:2px;margin-top:5px">
+																<input type="radio" id="Status12" name="Status12" value="Y1" checked>&nbsp;&nbsp;Yes&nbsp;
+																<input type="radio" id="Status12" style="margin-left: 10px;" name="Status12" value="N">&nbsp;&nbsp;No&nbsp;
+															</div>
+														</div>
+
+
+														<div class="col-sm-4">
+															<label for="" class="form-label">Recon Value Field</label>
+															<select id="mode" class="form-select form-control">
+																<option value="I"> Amount</option>
+															</select>
+														</div>
+													</div>
+													<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+														<div class="col-sm-4"></div>
+														<div class="col-sm-4" style="margin-top:10px;">
+															<center>
+																<button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;
+															</center>
+														</div>
+														<div class="col-sm-4"></div>
 													</div>
 												</div>
 											</div>
@@ -229,17 +474,408 @@
 				</div>
 			</div>
 		</section>
-	</div>
+		<div class="modal" id="Accountform" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					</div>
+					<div class="modal-body" style="margin-top: -26px;">
+						<div class="row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<h4 style="font-size: 14px;text-align: center;color: #1a9950;font-weight: 600;">Account</h4>
+							</div>
+							<div class="col-sm-4">
+								<i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
+							</div>
+						</div>
+						<hr style="margin-top:-1px; width:100%;">
+						<div class="container">
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Account Name</label>
+									<select id="mode" class="form-select form-control">
+										<option value="I"></option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Base/Target</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="BaseTarget" name="BaseTarget" value="I1" checked>&nbsp;&nbsp;Base&nbsp;
+										<input type="radio" id="BaseTarget" style="margin-left: 10px;" name="BaseTarget" value="E">&nbsp;&nbsp;Target&nbsp;
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Status&nbsp;</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Status23" name="Status23" value="Y1" checked>&nbsp;&nbsp;Active&nbsp;
+										<input type="radio" id="Status23" style="margin-left: 10px;" name="Status23" value="N">&nbsp;&nbsp;InActive&nbsp;
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" style="margin-top:30px;float: right;">
+							<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr1()">Cancel</button></center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="ReferenceFieldform" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					</div>
+					<div class="modal-body" style="margin-top: -26px;">
+						<div class="row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<h4 style="font-size: 14px;text-align: center;color: #1a9950;font-weight: 600;">Reference Field</h4>
+							</div>
+							<div class="col-sm-4">
+								<i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
+							</div>
+						</div>
+						<hr style="margin-top:-1px; width:100%;">
+						<div class="container">
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Ref Field Name</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Recon Field Name</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Field Type</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+							</div>
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Field Format</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Display Order</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Status&nbsp;</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Status14" name="Status14" value="Y" checked>&nbsp;&nbsp;Active&nbsp;
+										<input type="radio" id="Status14" style="margin-left: 10px;" name="Status14" value="N">&nbsp;&nbsp;InActive&nbsp;
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" style="margin-top:30px;float: right;">
+							<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr2()">Cancel</button></center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="FileTemplateform" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					</div>
+					<div class="modal-body" style="margin-top: -26px;">
+						<div class="row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<h4 style="font-size: 14px;text-align: center;color: #1a9950;font-weight: 600;">File Template</h4>
+							</div>
+							<div class="col-sm-4">
+								<i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
+							</div>
+						</div>
+						<hr style="margin-top:-1px; width:100%;">
+						<div class="container">
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Template Name</label>
+									<select id="mode" class="form-select form-control">
+										<option value="I">HDFC Bank Statement</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Account Name</label>
+									<select id="mode" class="form-select form-control">
+										<option value="I">123456789-HDFC Bank</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">File type</label>
+									<select id="modefield" class="form-select form-control" onclick="field()">
+										<option value="E">Excel</option>
+										<option value="C">CSV</option>
+									</select>
+								</div>
+							</div>
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Status&nbsp;</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Status34" name="Status34" value="Y" checked>&nbsp;&nbsp;Active&nbsp;
+										<input type="radio" id="Status34" style="margin-left: 10px;" name="Status34" value="N">&nbsp;&nbsp;InActive&nbsp;
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4" style="margin-top:10px;float: right;">
+								<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr3()">Cancel</button></center>
+							</div>
+							<div id="FileTemplateexcel">
+								<div class="panel-body">
+									<h2 style="font-size: 14px;text-align: left;color: #1a9950;font-weight: 600;">Excel Field Mapping</h2>
+									<i data-bs-toggle="modal" onclick="FileTemplateexcel()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
+									<table class="table table-bordered table-sm">
+										<thead style="background: #c1c1c1;">
+											<tr class="text-nowrap">
+												<th>Action</th>
+												<th>Excel Field Name</th>
+												<th>Recon Field Name</th>
+												<th>Extraction Criteria</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="height:25px;">
+												<td align="center"><i data-bs-toggle="modal" onclick="FileTemplateexcel()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+												<td>Loan#</td>
+												<td>Loan No</td>
+												<td>Exact</td>
+												<td>Active</td>
+											</tr>
+											<tr style="height:25px;">
+												<td align="center"><i data-bs-toggle="modal" onclick="FileTemplateexcel()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+												<td>Debit/Credit</td>
+												<td>Amount</td>
+												<td>Exact</td>
+												<td>Active</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="FileTemplatecsv">
+								<div class="panel-body">
+									<h2 style="font-size: 14px;text-align: left;color: #1a9950;font-weight: 600;">CSV Field Mapping</h2>
+									<i data-bs-toggle="modal" onclick="FileTemplatecsv()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
+									<table class="table table-bordered table-sm">
+										<thead style="background: #c1c1c1;">
+											<tr class="text-nowrap">
+												<th>Action</th>
+												<th>CSV Column No</th>
+												<th>Recon Field Name</th>
+												<th>Extraction Criteria</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="height:25px;">
+												<td align="center"><i data-bs-toggle="modal" onclick="FileTemplatecsv()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+												<td>1</td>
+												<td>Loan No</td>
+												<td>Exact</td>
+												<td>Active</td>
+											</tr>
+											<tr style="height:25px;">
+												<td align="center"><i data-bs-toggle="modal" onclick="FileTemplatecsv()" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+												<td>2</td>
+												<td>Amount</td>
+												<td>Exact</td>
+												<td>Active</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="ExcelFieldMappingform" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					</div>
+					<div class="modal-body" style="margin-top: -26px;">
+						<div class="row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<h4 style="font-size: 14px;text-align: center;color: #1a9950;font-weight: 600;">Excel Field Mapping</h4>
+							</div>
+							<div class="col-sm-4">
+								<i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
+							</div>
+						</div>
+						<hr style="margin-top:-1px; width:100%;">
+						<div class="container">
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Excel Field Name</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Recon Field Name</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Extraction Criteria</label>
+									<select id="mode" class="form-select form-control">
+										<option value="I"></option>
+									</select>
+								</div>
+							</div>
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Mandatory</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Mandatory1" name="Mandatory1" value="I" checked>&nbsp;&nbsp;Yes&nbsp;
+										<input type="radio" id="Mandatory1" style="margin-left: 10px;" name="Mandatory1" value="E">&nbsp;&nbsp;No&nbsp;
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Status&nbsp;</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Status33" name="Status33" value="Y" checked>&nbsp;&nbsp;Active&nbsp;
+										<input type="radio" id="Status33" style="margin-left: 10px;" name="Status33" value="N">&nbsp;&nbsp;InActive&nbsp;
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" style="margin-top:30px;float: right;">
+							<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr4()">Cancel</button></center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="csvFieldMappingform" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					</div>
+					<div class="modal-body" style="margin-top: -26px;">
+						<div class="row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<h4 style="font-size: 14px;text-align: center;color: #1a9950;font-weight: 600;">CSV Field Mapping</h4>
+							</div>
+							<div class="col-sm-4">
+								<i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
+							</div>
+						</div>
+						<hr style="margin-top:-1px; width:100%;">
+						<div class="container">
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">CSV Column No</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Recon Field Name</label>
+									<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Extraction Criteria</label>
+									<select id="mode" class="form-select form-control">
+										<option value="I"></option>
+									</select>
+								</div>
+							</div>
+							<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+								<div class="col-sm-4">
+									<label for="" class="form-label">Mandatory</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Mandatory2" name="Mandatory2" value="I" checked>&nbsp;&nbsp;Yes&nbsp;
+										<input type="radio" id="Mandatory2" style="margin-left: 10px;" name="Mandatory2" value="E">&nbsp;&nbsp;No&nbsp;
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="" class="form-label">Status&nbsp;</label>
+									<div style="margin-left:2px;margin-top:5px">
+										<input type="radio" id="Status22" name="Status22" value="Y" checked>&nbsp;&nbsp;Active&nbsp;
+										<input type="radio" id="Status22" style="margin-left: 10px;" name="Status22" value="N">&nbsp;&nbsp;InActive&nbsp;
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" style="margin-top:30px;float: right;">
+							<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr6()">Cancel</button></center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
-
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
 <script type="text/javascript">
-
 	$(document).ready(function () {
-		kendodate_format();		
+		kendodate_format();
+		$("#FileTemplatecsv").hide();
+		$(".chosen-select").chosen({
+			no_results_text: "Oops, nothing found!"
+		})
 	});
-
+	function Account() {
+		$("#Accountform").show();
+	}
+	function ReferenceField() {
+		$("#ReferenceFieldform").show();
+	}
+	function FileTemplate() {
+		$("#FileTemplateform").show();
+	}
+	function FileTemplateexcel() {
+		$("#ExcelFieldMappingform").show();
+	}
+	function FileTemplatecsv() {
+		$("#csvFieldMappingform").show();
+	}
+	function rr1() {
+		$("#Accountform").hide();
+	}
+	function rr2() {
+		$("#ReferenceFieldform").hide();
+	}
+	function rr3() {
+		$("#FileTemplateform").hide();
+	}
+	function rr4() {
+		$("#ExcelFieldMappingform").hide();
+	}
+	function rr5() {
+		$("#csvFieldMappingform").show();
+	}
+	function field() {
+		if ($("#modefield").val() == "C") {
+			$("#FileTemplatecsv").show();
+			$("#FileTemplateexcel").hide();
+		} else {
+			$("#FileTemplatecsv").hide();
+			$("#FileTemplateexcel").show();
+		}
+	}
+	function rr6() {
+		$("#csvFieldMappingform").hide();
+	}
+	function rr7() {
+		window.location.href = "../Recon/ReconList";
+	}
 </script>
 
 
