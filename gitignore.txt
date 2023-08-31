@@ -1,0 +1,16 @@
+/obj/
+/D:\Flexi\Recon\Github\Recon\Recon_Web\Recon\Properties\PublishProfiles
+Recon-api/Recon-api.v12.suo
+Recon-api/Recon-api/bin/Recon-api.dll
+Recon-api/Recon-api/bin/Recon-api.pdb
+Recon-api/Recon-api/obj/Debug/Recon-api.csprojResolveAssemblyReference.cache
+Recon-api/Recon-api/obj/Debug/Recon-api.dll
+Recon-api/Recon-api/obj/Debug/Recon-api.pdb
+Recon_Web/Recon-Web.v12.suo
+Recon_Web/Recon/bin/Recon.dll
+Recon_Web/Recon/bin/Recon.pdb
+Recon_Web/Recon/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Recon_Web/Recon/obj/Debug/Recon.csprojResolveAssemblyReference.cache
+Recon_Web/Recon/obj/Debug/Recon.dll
+Recon_Web/Recon/obj/Debug/Recon.pdbs
+Recon_Web/Recon/obj/
