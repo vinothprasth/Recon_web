@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbHlydWxlXEFwcGx5cnVsZWRldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/user/hema/Recon/Recon_Web/Recon_web/ReconWeb/Views/Filetemplate/Filetemplate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXRlbXBsYXRlXEZpbGV0ZW1wbGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/user/hema/Recon/Recon_Web/Recon_web/ReconWeb/Views/Filetemplate/Filetemplatedetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZXRlbXBsYXRlXEZpbGV0ZW1wbGF0ZWRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/user/hema/Recon/Recon_Web/Recon_web/ReconWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
