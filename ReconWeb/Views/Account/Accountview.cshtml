@@ -1,292 +1,292 @@
 ﻿@{
-    ViewData["Title"] = "Accountview";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Accountview";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <!Doctype html>
 <html>
 <head>
-    <title></title>
-    <style>
-        .k-button.k-button-icontext.k-grid-add {
-            background: green;
-            color: white;
-        }
+	<title></title>
+	<style>
+		.k-button.k-button-icontext.k-grid-add {
+			background: green;
+			color: white;
+		}
 
-        .k-pager-sizes {
-            display: inline-flex !important;
-            margin-left: 0% !important;
-            margin-top: -4% !important;
-            width: 24% !important;
-        }
-    </style>
+		.k-pager-sizes {
+			display: inline-flex !important;
+			margin-left: 0% !important;
+			margin-top: -4% !important;
+			width: 24% !important;
+		}
+	</style>
 
-    <style>
-        .modal-content {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            pointer-events: auto;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 0px solid rgba(67, 89, 113, 0.2);
-            border-radius: 0.5rem;
-            outline: 0;
-        }
+	<style>
+		.modal-content {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			pointer-events: auto;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 0px solid rgba(67, 89, 113, 0.2);
+			border-radius: 0.5rem;
+			outline: 0;
+		}
 
-        .modal-dialog {
-            position: relative;
-            width: 800px;
-            margin: 0.5rem;
-            pointer-events: none;
-            margin-left: -240px;
-        }
+		.modal-dialog {
+			position: relative;
+			width: 800px;
+			margin: 0.5rem;
+			pointer-events: none;
+			margin-left: -240px;
+		}
 
-        .modal-body {
-            position: relative;
-            flex: 1 1 auto;
-            padding: 1.5rem;
-        }
+		.modal-body {
+			position: relative;
+			flex: 1 1 auto;
+			padding: 1.5rem;
+		}
 
-        .modal-header {
-            display: flex;
-            flex-shrink: 0;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 1.5rem 0.25rem;
-            border-bottom: 0px solid #d9dee3;
-            border-top-left-radius: calc(0.5rem - 0px);
-            border-top-right-radius: calc(0.5rem - 0px);
-        }
+		.modal-header {
+			display: flex;
+			flex-shrink: 0;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.5rem 1.5rem 0.25rem;
+			border-bottom: 0px solid #d9dee3;
+			border-top-left-radius: calc(0.5rem - 0px);
+			border-top-right-radius: calc(0.5rem - 0px);
+		}
 
-        .error_show {
-            color: red;
-            margin-left: 10px;
-        }
+		.error_show {
+			color: red;
+			margin-left: 10px;
+		}
 
-        .k-state-active {
-            display: none;
-        }
+		.k-state-active {
+			display: none;
+		}
 
-        span.k-link {
-            color: #fff !important;
-            position: relative;
-            top: 0px;
-        }
+		span.k-link {
+			color: #fff !important;
+			position: relative;
+			top: 0px;
+		}
 
-        a.k-link {
-            position: relative;
-            top: 0px;
-        }
+		a.k-link {
+			position: relative;
+			top: 0px;
+		}
 
-        a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete {
-            background: transparent;
-            border-color: transparent;
-        }
+		a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete {
+			background: transparent;
+			border-color: transparent;
+		}
 
-        .k-pager-sizes {
-            display: inline-flex !important;
-            margin-left: 0% !important;
-            margin-top: -4% !important;
-            width: 24% !important;
-        }
+		.k-pager-sizes {
+			display: inline-flex !important;
+			margin-left: 0% !important;
+			margin-top: -4% !important;
+			width: 24% !important;
+		}
 
-        .k-button.k-button-icontext.k-grid-add {
-            background: green;
-            color: white;
-        }
+		.k-button.k-button-icontext.k-grid-add {
+			background: green;
+			color: white;
+		}
 
-        .error_show {
-            color: red;
-            margin-left: 10px;
-        }
+		.error_show {
+			color: red;
+			margin-left: 10px;
+		}
 
-        .k-state-active {
-            display: none;
-        }
+		.k-state-active {
+			display: none;
+		}
 
-        .k-grid-content {
-            overflow-x: scroll;
-        }
+		.k-grid-content {
+			overflow-x: scroll;
+		}
 
-        label {
-            display: inline-block;
-            max-width: 100%;
-            margin-bottom: 5px;
-        }
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+		}
 
-        span.k-link {
-            color: #fff !important;
-            position: relative;
-        }
+		span.k-link {
+			color: #fff !important;
+			position: relative;
+		}
 
-        a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete, a.k-button.k-button-icontext.k-grid-edit {
-            background: transparent;
-            border-color: transparent;
-        }
+		a.k-button.k-button-icontext.k-grid-Edit, a.k-button.k-button-icontext.k-grid-View, a.k-button.k-button-icontext.k-grid-Delete, a.k-button.k-button-icontext.k-grid-edit {
+			background: transparent;
+			border-color: transparent;
+		}
 
-        span.k-icon.k-edit {
-            display: none;
-        }
+		span.k-icon.k-edit {
+			display: none;
+		}
 
-        .k-grouping-header {
-            color: #ffffff;
-        }
+		.k-grouping-header {
+			color: #ffffff;
+		}
 
-        .k-grid-filter.k-state-active {
-            background-color: rgb(51, 122, 183);
-        }
+		.k-grid-filter.k-state-active {
+			background-color: rgb(51, 122, 183);
+		}
 
-        .k-state-active {
-            display: block;
-        }
+		.k-state-active {
+			display: block;
+		}
 
-        .k-header.k-grid-toolbar.k-grid-top {
-            background: none;
-        }
+		.k-header.k-grid-toolbar.k-grid-top {
+			background: none;
+		}
 
-        .k-webkit {
-            overflow: hidden !important;
-        }
+		.k-webkit {
+			overflow: hidden !important;
+		}
 
-    </style>
+	</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini fixed">
-    <div class="content-wrapper">
-        <section class="content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box box-orange" style="padding:10px;">
-                        <div class="box-header text-center with-border">
-                            <h3 class="box-title">Account Master</h3>
-                        </div>
-                        <div class="container">
-                            <div class="row" style="padding-top:25px;padding-left:5px;padding-right:5px">
-                                <div class="table-responsive text-nowrap" style="margin-top: -20px;">
-                                    <i data-bs-toggle="modal" onclick="rr()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
-                                    <table class="table table-bordered table-sm">
-                                        <thead style="background: #c1c1c1;">
-                                            <tr class="text-nowrap">
-                                                <th>Action</th>
-                                                <th>A/c No</th>
-                                                <th>A/c Name</th>
-                                                <th>Category</th>
-                                                <th>Responsibility</th>
-                                                <th>A/c Type</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr style="height:25px;">
-                                                <td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr style="height:25px;">
-                                                <td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+	<div class="content-wrapper">
+		<section class="content">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box box-orange" style="padding:10px;">
+						<div class="box-header text-center with-border">
+							<h3 class="box-title">Account Master</h3>
+						</div>
+						<div class="container">
+							<div class="row" style="padding-top:25px;padding-left:5px;padding-right:5px">
+								<div class="table-responsive text-nowrap" style="margin-top: -20px;">
+									<i data-bs-toggle="modal" onclick="rr()" class="fa fa-plus cursor-pointer" aria-hidden="true" style="color:green"></i>
+									<table class="table table-bordered table-sm">
+										<thead style="background: #c1c1c1;">
+											<tr class="text-nowrap">
+												<th>Action</th>
+												<th>A/c No</th>
+												<th>A/c Name</th>
+												<th>Category</th>
+												<th>Responsibility</th>
+												<th>A/c Type</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="height:25px;">
+												<td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+												<td>1219221000000189</td>
+												<td>KVB CC- Bank</td>
+												<td>Bank Statement</td>
+												<td>Demo User</td>
+												<td>Internal </td>
+												<td>Active</td>
+											</tr>
+											<tr style="height:25px;">
+												<td align="center"><i data-bs-toggle="modal" data-bs-target="#viewdebit" class="fa fa-pencil cursor-pointer" aria-hidden="true" style="font-size: 12px;color: #5490ff;"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="font-size: 12px;color: red;" aria-hidden="true"></i></td>
+												<td>12150101</td>
+												<td>CUB CC- Oracle Ledger</td>
+												<td>Ledger</td>
+												<td>Demo User</td>
+												<td>Internal </td>
+												<td>Active</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="modal" id="newdebit" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                </div>
-                <div class="modal-body" style="margin-top: -26px;">
-                    <div class="row">
-                        <div class="col-sm-4">
-                        </div>
-                        <div class="col-sm-4">
-                            <h4 style="font-size: 15px;text-align: center;color: #1a9950;font-weight: 600;">Account Master</h4>
-                        </div>
-                        <div class="col-sm-4">
-                            <i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
-                        </div>
-                    </div>
-                    <hr style="margin-top:-1px;">
-                    <div class="container">
-                        <div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">A/c No</label>
-                                <input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">A/c Name&nbsp;</label>
-                                <input class="form-control" id="AccountName" name="AccountName" type="text" value="" data-bind="value:AccountName" style=" width:92%;">
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">Category&nbsp;</label>
-                                <select id="mode" class="form-select form-control">
-                                    <option value="I">Bank Statement</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row" style="padding-bottom:8px;padding-top:8px;padding-left:30px;padding-right:5px">
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">Responsibility&nbsp;</label>
-                                <select id="mode" class="form-select form-control">
-                                    <option value="I">Demo User</option>
-                                </select>
-                            </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="modal" id="newdebit" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				</div>
+				<div class="modal-body" style="margin-top: -26px;">
+					<div class="row">
+						<div class="col-sm-4">
+						</div>
+						<div class="col-sm-4">
+							<h4 style="font-size: 15px;text-align: center;color: #1a9950;font-weight: 600;">Account Master</h4>
+						</div>
+						<div class="col-sm-4">
+							<i class="bx bx-x cursor-pointer" data-bs-dismiss="modal" style="color: #000000;float:right"></i>
+						</div>
+					</div>
+					<hr style="margin-top:-1px; width:100%;">
+					<div class="container">
+						<div class="row" style="padding-bottom:5px;margin-top:5px;padding-left:30px;padding-right:5px">
+							<div class="col-sm-4">
+								<label for="" class="form-label">A/c No</label>
+								<input class="form-control" id="AccountNo" name="AccountNo" type="text" value="" data-bind="value:AccountNo" style="width:92%;">
+							</div>
+							<div class="col-sm-4">
+								<label for="" class="form-label">A/c Name&nbsp;</label>
+								<input class="form-control" id="AccountName" name="AccountName" type="text" value="" data-bind="value:AccountName" style=" width:92%;">
+							</div>
+							<div class="col-sm-4">
+								<label for="" class="form-label">Category&nbsp;</label>
+								<select id="mode" class="form-select form-control">
+									<option value="I">Bank Statement</option>
+								</select>
+							</div>
+						</div>
+						<div class="row" style="padding-bottom:8px;padding-top:8px;padding-left:30px;padding-right:5px">
+							<div class="col-sm-4">
+								<label for="" class="form-label">Responsibility&nbsp;</label>
+								<select id="mode" class="form-select form-control">
+									<option value="I">Demo User</option>
+								</select>
+							</div>
 
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">A/c Type&nbsp;</label>
-                                <div style="margin-left:2px;margin-top:5px">
-                                    <input type="radio" id="Accounttype" name="Accounttype" value="I" checked>&nbsp;&nbsp;Internal&nbsp;
-                                    <input type="radio" id="Accounttype" style="margin-left: 10px;" name="Accounttype" value="E">&nbsp;&nbsp;External&nbsp;
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">Status&nbsp;</label>
-                                <div style="margin-left:2px;margin-top:5px">
-                                    <input type="radio" id="Status" name="Status" value="Y" checked>&nbsp;&nbsp;Active&nbsp;
-                                    <input type="radio" id="Status" style="margin-left: 10px;" name="Status" value="N">&nbsp;&nbsp;InActive&nbsp;
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4" style="margin-top:30px;float: right;">
-                        <center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr1()">Cancel</button></center>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+							<div class="col-sm-4">
+								<label for="" class="form-label">A/c Type&nbsp;</label>
+								<div style="margin-left:2px;margin-top:5px">
+									<input type="radio" id="Accounttype" name="Accounttype" value="I" checked>&nbsp;&nbsp;Internal&nbsp;
+									<input type="radio" id="Accounttype" style="margin-left: 10px;" name="Accounttype" value="E">&nbsp;&nbsp;External&nbsp;
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<label for="" class="form-label">Status&nbsp;</label>
+								<div style="margin-left:2px;margin-top:5px">
+									<input type="radio" id="Status" name="Status" value="Y" checked>&nbsp;&nbsp;Active&nbsp;
+									<input type="radio" id="Status" style="margin-left: 10px;" name="Status" value="N">&nbsp;&nbsp;InActive&nbsp;
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4" style="margin-top:30px;float: right;">
+						<center><button type="submit" class="btn btn-sm btn-success me-2" style="background: #38b55a;border-color: #38b55a;width:40%">Save</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-sm btn-success me-2" data-bs-dismiss="modal" style="background: red;border-color: red;width:40%" onclick="rr1()">Cancel</button></center>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
 
 </body>
 </html>
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
+	$(document).ready(function () {
 
-    })
-    function rr() {
-        $("#newdebit").show();
-    }
-    function rr1() {
-        $("#newdebit").hide();
-    }
+	})
+	function rr() {
+		$("#newdebit").show();
+	}
+	function rr1() {
+		$("#newdebit").hide();
+	}
 </script>
 
