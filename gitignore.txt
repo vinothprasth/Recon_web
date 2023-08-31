@@ -20,3 +20,5 @@ ReconWeb/obj/ReconWeb.csproj.nuget.dgspec.json
 ReconWeb/obj/ReconWeb.csproj.nuget.g.props
 ReconWeb/obj/project.assets.json
 ReconWeb/obj/project.nuget.cache
+ReconWeb/.vs/ReconWeb/DesignTimeBuild/.dtbcache.v2
+ReconWeb/.vs/ReconWeb/v17/.suo
