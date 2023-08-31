@@ -8,5 +8,9 @@ namespace ReconWeb.Controllers
         {
             return View();
         }
-    }
+		public IActionResult ReconList()
+		{
+			return View();
+		}
+	}
 }
