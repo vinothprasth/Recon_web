@@ -10,6 +10,7 @@ using System.Reflection;
 using System.IO;
 using log4net;
 using log4net.Config;
+using Recon.Controllers;
 
 namespace ReconWeb
 {
@@ -34,7 +35,10 @@ namespace ReconWeb
             services.AddRouting();
             services.AddControllersWithViews();
             services.AddRazorPages();
-          
+            services.AddLogging();
+            services.AddTransient<CommonController>();
+            services.AddHttpClient();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,10 +61,11 @@ namespace ReconWeb
             app.UseAuthorization();
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
+               routes.MapRoute(
                name: "default",
-               template: "{controller=Home}/{action=Index}/{id?}");
+               template: "{controller=Login}/{action=Login}/{id?}");
             });
+
         }
     }
 }
